@@ -17,8 +17,4 @@ This is a simple program that plots a graph of a straight line using the gradien
 2. Enter the gradient (m) and y-intercept (c) when prompted.
 3. The program will display the graph on the console.
 
-## Example
-
-Here's an example of how to use the program:
-
 ## I now write better READMe files. Thanks to Alfawaz (staa99)! ::heart::
