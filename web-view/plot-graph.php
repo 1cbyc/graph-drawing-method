@@ -9,27 +9,29 @@ function plot($m, $c, &$arr) {
     }
 }
 
-$m = $_POST['m'];
-$c = $_POST['c'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $m = $_POST['m'];
+    $c = $_POST['c'];
 
-if (!is_numeric($m) || !is_numeric($c)) {
-    echo "Invalid input. Please enter numeric values for m and c.";
-    exit(1);
-}
-
-$arr = array_fill(0, DMS, array_fill(0, DMS * 2 + 1, ' '));
-
-for ($i = 0; $i < DMS; $i++) {
-    for ($j = 0; $j < DMS * 2 + 1; $j++) {
-        $arr[$i][$j] = ($i == DMS / 2 ? '-' : ($j == DMS ? chr(197) : ' '));
+    if (!is_numeric($m) || !is_numeric($c)) {
+        echo "Invalid input. Please enter numeric values for m and c.";
+        exit(1);
     }
-}
 
-$arr[DMS / 2][DMS] = chr(197);
+    $arr = array_fill(0, DMS, array_fill(0, DMS * 2 + 1, ' '));
 
-plot($m, $c, $arr);
+    for ($i = 0; $i < DMS; $i++) {
+        for ($j = 0; $j < DMS * 2 + 1; $j++) {
+            $arr[$i][$j] = ($i == DMS / 2 ? '-' : ($j == DMS ? chr(197) : ' '));
+        }
+    }
 
-for ($i = 0; $i < DMS; $i++) {
-    echo implode('', $arr[$i]) . "<br>";
+    plot($m, $c, $arr);
+
+    echo "<pre>";
+    for ($i = 0; $i < DMS; $i++) {
+        echo implode('', $arr[$i]) . "\n";
+    }
+    echo "</pre>";
 }
 ?>
