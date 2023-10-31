@@ -4,12 +4,12 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**"
+                "${workspaceFolder}/graph-v1.cpp**"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ]
+            "defines": [],
+            "compilerPath": "g++",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
         }
     ],
     "version": 4
